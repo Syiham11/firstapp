@@ -1,0 +1,25 @@
+<% include ../header %>
+<a href="/movies/create" class="btn btn-info">Tambah</a>
+
+<% for(let data of ListMovies){ %>
+  <br>
+<div class="card">
+  <div class="card-header">
+    <%= data.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Tanggal <%= data.released_on %></h5>
+    <a href="/movies/update/<%= data.id %>" class="btn btn-primary">Edit</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#data<%= data.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+      delete
+    </a>
+  </div>
+</div>
+
+<div class="collapse" id="data<%= data.id %>">
+  <div class="card card-body">
+apakah anada yakin unutk menghapus film <%=data.name %> ?
+<a href="/movies/delete/<%= data.id %>" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+<% } %>
